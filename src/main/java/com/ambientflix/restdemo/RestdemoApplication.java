@@ -11,8 +11,8 @@ public class RestdemoApplication {
 		SpringApplication.run(RestdemoApplication.class, args);
 		
 		RestTemplate restTemplate = new RestTemplate();
-		//HttpEntity<String> request = new HttpEntity<>("");
-		MovieResults result = restTemplate.getForObject("https://api.themoviedb.org/3/search/movie?api_key=9950b15cd666adb852b2ea54472b7c38&query=Jack+Reacher", MovieResults.class);		
+		String keyword = "foo";
+		MovieResults result = restTemplate.getForObject("https://api.themoviedb.org/3/search/movie?api_key=9950b15cd666adb852b2ea54472b7c38&query={keyword}", MovieResults.class, keyword);		
 
 		System.out.println("Total: " + result.getTotal_results());
 
